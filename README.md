@@ -18,6 +18,6 @@ JDK 8 new small feature examples (lamda not included)
   - DateTimeFormatter
 - Concurrency 
   - ConcurrentHashMap
-  - Array Parrallel
-  - Atomic Opertions
+  - Array Parallel
+  - Atomic Operations
   
