@@ -1,6 +1,6 @@
 # jdk-8-examples
 
-JDK 8 new small feature examples (lamda not included)
+JDK 8 new small feature examples
 
 - String
   - join
@@ -20,4 +20,5 @@ JDK 8 new small feature examples (lamda not included)
   - ConcurrentHashMap
   - Array Parallel
   - Atomic Operations
+- Lambda
   

@@ -1,7 +1,3 @@
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.text.Font;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -13,13 +9,11 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.atomic.LongAdder;
+import java.util.function.Predicate;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
-/**
- * Created by TQui on 2/27/15.
- */
+
 public class NewLittleThingsInJava {
 
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -115,6 +109,33 @@ public class NewLittleThingsInJava {
         String[] wordsArray = contents.split("[\\P{L}]+"); // Split along nonletters Arrays.parallelSort(words);
         Arrays.parallelSort(wordsArray);
 
+
+        // Lambda, new a thread
+        new Thread(
+                () -> System.out.println("Hello from thread")
+        ).start();
+
+
+        // print all elements in a array
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+        list.forEach(System.out::println);
+
+
+        // predicate
+        evaluate(list, (n)-> n%2 == 0 );
+
+        // stream
+        int sum = list.stream().map(x -> x*x).reduce((x,y) -> x + y).get();
+        System.out.println(sum);
+
     }
 
+
+    public static void evaluate(List<Integer> list, Predicate<Integer> predicate) {
+        for(Integer n: list)  {
+            if(predicate.test(n)) {
+                System.out.println(n + " ");
+            }
+        }
+    }
 }
